@@ -1,11 +1,13 @@
 import React from 'react'
-import { Gap } from '../../components'
+import { Link } from 'react-router-dom'
+import { Button, Gap } from '../../components'
 
 const AddArticle = () => {
   return (
     <>
       <div className='container'>
         <Gap height={170} />
+        <h1 className='text-center'> Add Article</h1>
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>
@@ -27,10 +29,12 @@ const AddArticle = () => {
                       placeholder='Enter Description...'
                     ></textarea>
                   </div>
-
-                  <button type='submit' className='btn btn-primary mt-2 '>
-                    Submit
-                  </button>
+                  <Gap height={10} />
+                  <div className='btn-group'>
+                    <Button to='/' label='Back' variant='secondary' />
+                    <Gap width={20} />
+                    <Button label='Add Article' variant='success' />
+                  </div>
                 </form>
               </div>
             </div>

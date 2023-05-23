@@ -7,7 +7,7 @@ const ListArticle = () => {
     <>
       <div className='container mt-5'>
         <h1 className='text-center'>All Artike </h1>
-        <Button label='add article +' variant='primary' />
+        <Button to='/add-article' label='add article +' variant='primary' />
         <table className='table'>
           <thead>
             <tr>
