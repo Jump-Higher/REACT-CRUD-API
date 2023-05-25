@@ -7,7 +7,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ListArticle />} />
         <Route path="/add-article" element={<AddArticle />} />
-        <Route path="/update-article" element={<UpdateArticle />} />
+        <Route path="/update-article/:id_article" element={<UpdateArticle />} />
       </Routes>
     </>
   );
