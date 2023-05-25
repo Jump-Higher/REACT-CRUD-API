@@ -63,3 +63,19 @@
         - http://127.0.0.1:5173/
         - klik button add article
         - pada halaman form artilce klik back
+
+## Setup Proxy menggunakan axios instance
+
+    Todo:
+    1.  src/api/api_instance.jsx
+        - setup proxy
+    2.  crud/ListArticle/index.jsx
+        - import dan pasang instance menggantikan axios
+        - rubah pemanggilan enpoint
+    3.  components/iconTrash/index.jsx
+        - modify code
+    4.  components/iconPencil/index.jsx
+        - modify code
+    5.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/

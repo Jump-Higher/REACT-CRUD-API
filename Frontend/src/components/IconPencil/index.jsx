@@ -3,7 +3,9 @@ import React from 'react'
 const IconPencil = () => {
   return (
     <>
-      <i className='fa fa-edit mx-1'></i>
+      <button className='btn btn-primary btn-sm mx-1'>
+        <i className='fa fa-edit mx-1'></i>
+      </button>
     </>
   )
 }

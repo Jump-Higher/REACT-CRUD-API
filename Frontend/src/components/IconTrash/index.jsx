@@ -3,7 +3,9 @@ import React from 'react'
 const IconTrash = () => {
   return (
     <>
-      <i className='fas fa-trash' style={{ color: 'red' }}></i>
+      <button className='btn btn-danger btn-sm '>
+        <i className='fas fa-trash'></i>
+      </button>
     </>
   )
 }
