@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Button = ({ label, variant, ...rest }) => {
   return (
@@ -8,7 +8,7 @@ const Button = ({ label, variant, ...rest }) => {
         {label}
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

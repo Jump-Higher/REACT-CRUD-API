@@ -31,6 +31,7 @@ const UpdateArticle = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("diklik");
 
     // update article
     axios
@@ -41,6 +42,7 @@ const UpdateArticle = () => {
       .then((res) => {
         console.log(res.data);
         // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
+        alert(res.data.message);
         navigate("/");
       })
       .catch((err) => {
@@ -86,7 +88,13 @@ const UpdateArticle = () => {
                   <div className="btn-group">
                     <Button to="/" label="Back" variant="secondary" />
                     <Gap width={20} />
-                    <Button label="Update Article" variant="success" />
+                    <button
+                      // label="Update Article"
+                      // variant="success"
+                      className="btn btn-success"
+                    >
+                      Update Article
+                    </button>
                   </div>
                 </form>
               </div>
