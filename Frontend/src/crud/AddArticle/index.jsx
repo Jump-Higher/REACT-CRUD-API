@@ -4,6 +4,7 @@ import { useState } from 'react'
 import instance from '../../api/api_instace'
 import { Link } from 'react-router-dom'
 import './addArticle.css'
+import swal from 'sweetalert'
 
 const AddArticle = () => {
   // deklarasi hooks
@@ -20,7 +21,13 @@ const AddArticle = () => {
     try {
       const res = await instance.post(`/article/create`, addArticle)
       console.log(res)
-      alert(res.data.message)
+      // alert(res.data.message)
+      swal({
+        title: 'Success!',
+        text: 'Data Article Berhasil Ditambahkan!',
+        icon: 'success',
+        button: 'close!',
+      })
       navigate('/')
     } catch (err) {
       console.log(err)

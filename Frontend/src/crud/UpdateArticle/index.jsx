@@ -1,6 +1,7 @@
 // import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
+import swal from 'sweetalert'
 import instance from '../../api/api_instace'
 import { Button, Gap } from '../../components'
 // const api = `http://13.239.136.211/blog-api/v1/article/update`;
@@ -38,7 +39,13 @@ const UpdateArticle = () => {
       .then((res) => {
         console.log(res.data)
         // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
-        alert(res.data.message)
+        // alert(res.data.message)
+        swal({
+          title: 'Success!',
+          text: 'Data Article Berhasil Diupdate!',
+          icon: 'success',
+          button: 'close!',
+        })
         navigate('/')
       })
       .catch((err) => {

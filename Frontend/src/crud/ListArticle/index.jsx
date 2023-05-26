@@ -9,7 +9,7 @@ const ListArticle = () => {
   // deklarasi hooks
   const [articles, setArticles] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [articlesPerPage] = useState(5) // Jumlah artikel per halaman
+  const [articlesPerPage] = useState(7) // Jumlah artikel per halaman
   const [searchTerm, setSearchTerm] = useState('') // Kata kunci pencarian
 
   // pasang useNavigate
