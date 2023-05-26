@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import instance from '../../api/api_instace'
 import { Link } from 'react-router-dom'
+import './addArticle.css'
 
 const AddArticle = () => {
   // deklarasi hooks
@@ -32,6 +33,7 @@ const AddArticle = () => {
       <div className='container'>
         <Gap height={170} />
         <h1 className='text-center'> Add Article</h1>
+        <br />
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>

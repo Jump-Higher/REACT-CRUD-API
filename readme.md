@@ -161,3 +161,8 @@
         - ketik title yang diinginkan
         - jika setup yang kita lakukan berhasil maka, akan menampilkan data
           sesuai title yang diketikan
+
+## Menambahkan font
+
+    Todo:
+    styling css

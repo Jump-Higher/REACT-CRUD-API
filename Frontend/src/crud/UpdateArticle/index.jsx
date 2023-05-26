@@ -51,6 +51,7 @@ const UpdateArticle = () => {
       <div className='container'>
         <Gap height={170} />
         <h1 className='text-center mb-2'> Update Article</h1>
+        <br />
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>
