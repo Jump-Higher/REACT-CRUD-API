@@ -1,15 +1,18 @@
 .title {
   font-family: 'Oleo Script', cursive;
-  /* color: #ffc93c; */
   color: #686bb7;
 }
 .color {
-  color: #fff;
-  border: none;
-  background-color: #686bb7;
-  border-color: #686bb7;
+  color: #686bb7;
+  background-color: #fff;
+  border-color: #686bb7 !important;
   border-radius: 5px;
   padding: 7px;
+}
+.color:hover {
+  background-color: #686bb7;
+  color: #fff;
+  border: none;
 }
 .color-head {
   color: #fff;
@@ -19,10 +22,7 @@
   color: #fff;
   background-color: #686bb7 !important;
 }
-.color:hover {
-  background-color: #ffc93c;
-  border-color: #ffc93c;
-}
+
 .color-search {
   color: #fff;
   background-color: #686bb7 !important;

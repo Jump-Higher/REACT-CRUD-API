@@ -93,7 +93,11 @@ const UpdateArticle = () => {
                       />
                     </Link>
                     <Gap width={20} />
-                    <Button label='Update Article' variant='outline-primary' />
+                    <Button
+                      label='Update Article'
+                      variant='outline-primary'
+                      className='color'
+                    />
                   </div>
                 </form>
               </div>

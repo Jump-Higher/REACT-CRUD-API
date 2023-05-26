@@ -87,6 +87,7 @@ const AddArticle = () => {
                       label='Add Article'
                       variant='outline-success'
                       type='submit'
+                      className='color'
                     />
                   </div>
                 </form>
