@@ -1,3 +1,7 @@
-.text-center {
+.title {
   font-family: 'Oleo Script', cursive;
+}
+.text-bg {
+  color: #fff !important;
+  background-color: #686bb7 !important;
 }

@@ -32,12 +32,12 @@ const AddArticle = () => {
     <>
       <div className='container'>
         <Gap height={170} />
-        <h1 className='text-center'> Add Article</h1>
+        <h1 className='text-center title'> Add Article</h1>
         <br />
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>
-              <div className='card-header text-center  text-bg-info'>
+              <div className='card-header text-center  text-bg'>
                 Form Add Article
               </div>
               <div className='card-body'>

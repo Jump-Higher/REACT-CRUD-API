@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import instance from '../../api/api_instace'
+import './listArticle.css'
 
 import { Button } from '../../components'
 
@@ -72,7 +73,7 @@ const ListArticle = () => {
   return (
     <>
       <div className='container mt-5'>
-        <h1 className='text-center'>All Articles </h1>
+        <h1 className='text-center title'>All Articles </h1>
         <div className='row'>
           <div className='col-md-9'>
             <Link to='/add-article'>
@@ -80,6 +81,7 @@ const ListArticle = () => {
                 label='add article '
                 variant='outline-primary'
                 icon='plus'
+                className='color'
               />
             </Link>
           </div>
@@ -93,16 +95,13 @@ const ListArticle = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button className='btn btn-outline-info' type='submit'>
-                Search
-              </button>
             </form>
           </div>
         </div>
 
         <br />
         <table className='table table-striped '>
-          <thead className='text-center table-primary'>
+          <thead className='text-center  color-head'>
             <tr>
               <th scope='col'>#</th>
               <th scope='col'>Title</th>

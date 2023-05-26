@@ -1,3 +1,31 @@
-.text-center {
+.title {
   font-family: 'Oleo Script', cursive;
+  /* color: #ffc93c; */
+  color: #686bb7;
+}
+.color {
+  color: #fff;
+  border: none;
+  background-color: #686bb7;
+  border-color: #686bb7;
+  border-radius: 5px;
+  padding: 7px;
+}
+.color-head {
+  color: #fff;
+  background-color: #686bb7 !important;
+}
+.page-item .active {
+  color: #fff;
+  background-color: #686bb7 !important;
+}
+.color:hover {
+  background-color: #ffc93c;
+  border-color: #ffc93c;
+}
+.color-search {
+  color: #fff;
+  background-color: #686bb7 !important;
+  border-color: #686bb7 !important;
+  border-radius: 5px;
 }
