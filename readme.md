@@ -146,3 +146,18 @@
         - http://127.0.0.1:5173/
         - klik pagination
         - jika setup yang kit lakukan berhasil akan ditampilkan data perpage
+
+## Serach berdasarkan title
+
+    Todo:
+    1.  crud/ListArticle/index.jsx
+        - Kata kunci pencarian
+        - filteredArticles untuk Mencari artikel berdasarkan judul (title)
+        - filteredArticles dipasang pada currentArticles
+        - pasang serach nya
+    2.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
+        - ketik title yang diinginkan
+        - jika setup yang kita lakukan berhasil maka, akan menampilkan data
+          sesuai title yang diketikan

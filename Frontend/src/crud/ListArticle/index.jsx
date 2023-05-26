@@ -9,6 +9,7 @@ const ListArticle = () => {
   const [articles, setArticles] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [articlesPerPage] = useState(5) // Jumlah artikel per halaman
+  const [searchTerm, setSearchTerm] = useState('') // Kata kunci pencarian
 
   // pasang useNavigate
   const navigate = useNavigate()
@@ -43,6 +44,10 @@ const ListArticle = () => {
       }
     }
   }
+  // Mencari artikel berdasarkan judul (title)
+  const filteredArticles = articles.filter((article) =>
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   // Mengatur halaman saat ini
   const paginate = (pageNumber) => {
@@ -54,7 +59,7 @@ const ListArticle = () => {
   // Menghitung indeks artikel yang akan ditampilkan di halaman saat ini
   const indexOfLastArticle = currentPage * articlesPerPage
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage
-  const currentArticles = articles.slice(
+  const currentArticles = filteredArticles.slice(
     indexOfFirstArticle,
     indexOfLastArticle
   )
@@ -68,9 +73,33 @@ const ListArticle = () => {
     <>
       <div className='container mt-5'>
         <h1 className='text-center'>All Articles </h1>
-        <Link to='/add-article'>
-          <Button label='add article ' variant='outline-primary' icon='plus' />
-        </Link>
+        <div className='row'>
+          <div className='col-md-9'>
+            <Link to='/add-article'>
+              <Button
+                label='add article '
+                variant='outline-primary'
+                icon='plus'
+              />
+            </Link>
+          </div>
+          <div className='col-md-3'>
+            <form className='d-flex' role='search'>
+              <input
+                className='form-control me-2'
+                type='search'
+                placeholder='Search'
+                aria-label='Search'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <button className='btn btn-outline-info' type='submit'>
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+
         <br />
         <table className='table table-striped '>
           <thead className='text-center table-primary'>

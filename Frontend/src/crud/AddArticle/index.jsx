@@ -35,7 +35,9 @@ const AddArticle = () => {
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>
-              <div className='card-header text-center'>Form Add Article</div>
+              <div className='card-header text-center  text-bg-info'>
+                Form Add Article
+              </div>
               <div className='card-body'>
                 <form onSubmit={handleSubmit}>
                   <div className='form-group'>
