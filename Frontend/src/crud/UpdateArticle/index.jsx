@@ -22,7 +22,6 @@ const UpdateArticle = () => {
       .then((res) => {
         console.log(res)
         setUpdate(res.data.data)
-        navigate('/')
       })
       .catch((err) => {
         console.error(err)
@@ -39,8 +38,8 @@ const UpdateArticle = () => {
       .then((res) => {
         console.log(res.data)
         // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
-        // alert(res.data.message);
-        // navigate("/");
+        alert(res.data.message)
+        navigate('/')
       })
       .catch((err) => {
         console.error(err)
@@ -51,11 +50,13 @@ const UpdateArticle = () => {
     <>
       <div className='container'>
         <Gap height={170} />
-        <h1 className='text-center'> Update Article</h1>
+        <h1 className='text-center mb-2'> Update Article</h1>
         <div className='row justify-content-center'>
           <div className='col-md-6'>
             <div className='card'>
-              <div className='card-header text-center'>Form Update Article</div>
+              <div className='card-header text-center text-bg-info'>
+                Form Update Article
+              </div>
               <div className='card-body'>
                 <form onSubmit={handleSubmit}>
                   <div className='form-group'>
@@ -84,16 +85,14 @@ const UpdateArticle = () => {
                   <Gap height={10} />
                   <div className='btn-group'>
                     <Link to='/'>
-                      <Button to='/' label='Back' variant='secondary' />
+                      <Button
+                        icon='arrow-left'
+                        label='Back '
+                        variant='outline-secondary'
+                      />
                     </Link>
                     <Gap width={20} />
-                    <button
-                      // label="Update Article"
-                      // variant="success"
-                      className='btn btn-success'
-                    >
-                      Update Article
-                    </button>
+                    <Button label='Update Article' variant='outline-primary' />
                   </div>
                 </form>
               </div>

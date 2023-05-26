@@ -92,3 +92,13 @@
         - pada terminal : npm run dev
         - http://127.0.0.1:5173/
 
+## Modify-ing update article
+
+    Todo:
+    1.  crud/UpdateArticle/index.jsx
+        - modify-ing code dengan try and catch
+        - modify-ing button
+        - modify-ing header card
+    2.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
