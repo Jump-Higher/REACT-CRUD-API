@@ -117,3 +117,15 @@
         - isi form kemudian add article
         - jika berhasil akan ada alert success
           dan akan di arahkan kehalaman list artikel
+
+## Delete Article
+
+    Todo:
+    1.  crud/AddArticle/index.jsx
+        - pasang handleDelete
+    2.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
+        - klik button trush pada salah satu data
+        - jika berhasil akan ada alert success
+          dan data yang dihapus akan hilang
