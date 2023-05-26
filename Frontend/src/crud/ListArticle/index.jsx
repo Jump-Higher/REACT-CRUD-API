@@ -5,7 +5,11 @@ import instance from '../../api/api_instace'
 import { Button } from '../../components'
 
 const ListArticle = () => {
+  // deklarasi hooks
   const [articles, setArticles] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [articlesPerPage] = useState(5) // Jumlah artikel per halaman
+
   // pasang useNavigate
   const navigate = useNavigate()
   useEffect(() => {
@@ -39,6 +43,27 @@ const ListArticle = () => {
       }
     }
   }
+
+  // Mengatur halaman saat ini
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  // Menghitung total halaman
+  const totalPages = Math.ceil(articles.length / articlesPerPage)
+  // Menghitung indeks artikel yang akan ditampilkan di halaman saat ini
+  const indexOfLastArticle = currentPage * articlesPerPage
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage
+  const currentArticles = articles.slice(
+    indexOfFirstArticle,
+    indexOfLastArticle
+  )
+
+  // Menghasilkan tombol halaman
+  const pageNumbers = []
+  for (let i = 1; i <= Math.ceil(articles.length / articlesPerPage); i++) {
+    pageNumbers.push(i)
+  }
   return (
     <>
       <div className='container mt-5'>
@@ -57,7 +82,7 @@ const ListArticle = () => {
             </tr>
           </thead>
           <tbody className='table-group-divider text-center'>
-            {articles.map((article, index) => (
+            {currentArticles.map((article, index) => (
               <tr key={index}>
                 <th scope='row'>{(index = index + 1)}</th>
                 <td>{article.title}</td>
@@ -80,6 +105,43 @@ const ListArticle = () => {
             ))}
           </tbody>
         </table>
+        {/* pasang pagination */}
+        <nav aria-label='Page navigation example'>
+          <ul className='pagination justify-content-end'>
+            <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+              <button
+                className='page-link'
+                onClick={() => paginate(currentPage - 1)}
+              >
+                Previous
+              </button>
+            </li>
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`page-item ${
+                  currentPage === number ? 'active' : ''
+                }`}
+              >
+                <button className='page-link' onClick={() => paginate(number)}>
+                  {number}
+                </button>
+              </li>
+            ))}
+            <li
+              className={`page-item ${
+                currentPage === totalPages ? 'disabled' : ''
+              }`}
+            >
+              <button
+                className='page-link'
+                onClick={() => paginate(currentPage + 1)}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </>
   )

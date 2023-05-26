@@ -121,7 +121,7 @@
 ## Delete Article
 
     Todo:
-    1.  crud/AddArticle/index.jsx
+    1.  crud/ListArticle/index.jsx
         - pasang handleDelete
     2.  pengujian pada browser:
         - pada terminal : npm run dev
@@ -129,3 +129,20 @@
         - klik button trush pada salah satu data
         - jika berhasil akan ada alert success
           dan data yang dihapus akan hilang
+
+## Pagination
+
+    Todo:
+    1.  crud/ListArticle/index.jsx
+        - deklarasi hooks untuk pagination
+        - function paginate untuk mengatur halaman saat ini
+        - totalPages untuk Menghitung total halaman
+        - currentArticles untuk Menghitung indeks artikel yang
+          akan ditampilkan di halaman saat ini
+        - looping pageNumbers untuk Menghasilkan tombol halaman
+        - pasang pagination
+    2.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
+        - klik pagination
+        - jika setup yang kit lakukan berhasil akan ditampilkan data perpage
