@@ -102,3 +102,18 @@
     2.  pengujian pada browser:
         - pada terminal : npm run dev
         - http://127.0.0.1:5173/
+
+## Add Article
+
+    Todo:
+    1.  crud/AddArticle/index.jsx
+        - deklarasi hooks
+        - pasang useNavigate
+        - pasang handleSubmit
+    2.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
+        - klik button add article
+        - isi form kemudian add article
+        - jika berhasil akan ada alert success
+          dan akan di arahkan kehalaman list artikel

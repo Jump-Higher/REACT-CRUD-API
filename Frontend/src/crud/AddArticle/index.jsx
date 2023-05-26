@@ -1,6 +1,32 @@
 import { Button, Gap } from '../../components'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import instance from '../../api/api_instace'
+import { Link } from 'react-router-dom'
 
 const AddArticle = () => {
+  // deklarasi hooks
+  const [addArticle, setAddArticle] = useState({
+    title: '',
+    description: '',
+  })
+  // pasang useNavigate
+  const navigate = useNavigate()
+
+  // pasang handleSubmit
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await instance.post(`/article/create`, addArticle)
+      console.log(res)
+      alert(res.data.message)
+      navigate('/')
+    } catch (err) {
+      console.log(err)
+      alert('Terjadi kesalahan saat menyimpan data!')
+    }
+  }
+
   return (
     <>
       <div className='container'>
@@ -11,27 +37,53 @@ const AddArticle = () => {
             <div className='card'>
               <div className='card-header text-center'>Form Add Article</div>
               <div className='card-body'>
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className='form-group'>
-                    <label htmlFor=''>Title</label>
+                    <label htmlFor='title'>Title</label>
                     <input
                       type='text'
                       className='form-control'
+                      id='title'
                       placeholder='Enter Title...'
+                      value={addArticle.title}
+                      onChange={(e) =>
+                        setAddArticle({
+                          ...addArticle,
+                          title: e.target.value,
+                        })
+                      }
                     />
                   </div>
                   <div className='form-group'>
-                    <label htmlFor=''>Desccription</label>
+                    <label htmlFor='description'>Description</label>
                     <textarea
                       className='form-control'
+                      id='description'
                       placeholder='Enter Description...'
+                      value={addArticle.description}
+                      onChange={(e) =>
+                        setAddArticle({
+                          ...addArticle,
+                          description: e.target.value,
+                        })
+                      }
                     ></textarea>
                   </div>
                   <Gap height={10} />
                   <div className='btn-group'>
-                    <Button to='/' label='Back' variant='secondary' />
+                    <Link to='/'>
+                      <Button
+                        icon='arrow-left'
+                        label='Back '
+                        variant='outline-secondary'
+                      />
+                    </Link>
                     <Gap width={20} />
-                    <Button label='Add Article' variant='success' />
+                    <Button
+                      label='Add Article'
+                      variant='outline-success'
+                      type='submit'
+                    />
                   </div>
                 </form>
               </div>
