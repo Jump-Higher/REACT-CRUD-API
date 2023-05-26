@@ -79,3 +79,16 @@
     5.  pengujian pada browser:
         - pada terminal : npm run dev
         - http://127.0.0.1:5173/
+
+## Modify-ing list article
+
+    Todo:
+    1.  crud/ListArticle/index.jsx
+        - modify-ing table
+    2.  hapus icon trash & icon pencil
+    3.  components/Button/index.jsx
+        - update button
+    4.  pengujian pada browser:
+        - pada terminal : npm run dev
+        - http://127.0.0.1:5173/
+

@@ -1,14 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Button = ({ label, variant, ...rest }) => {
+const Button = ({ label, variant, icon, ...rest }) => {
   return (
     <div>
-      <Link {...rest} className={`btn btn-${variant}`}>
+      <button className={`btn btn-${variant}`} {...rest}>
         {label}
-      </Link>
+        {icon && (
+          <span>
+            <i className={`fas fa-${icon}`}></i>
+          </span>
+        )}
+      </button>
     </div>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
