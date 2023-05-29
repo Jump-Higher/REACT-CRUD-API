@@ -119,6 +119,7 @@ const ListArticle = () => {
               <th scope="col">#</th>
               <th scope="col">Title</th>
               <th scope="col">Description</th>
+              <th scope="col">Image</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -128,6 +129,9 @@ const ListArticle = () => {
                 <th scope="row">{(index = index + 1)}</th>
                 <td>{article.title}</td>
                 <td>{article.description}</td>
+                <td>
+                  <img src={article.image} alt="" />
+                </td>
                 <td>
                   <div className="btn-group ">
                     <Link to={`/update-article/${article.id_article}`}>

@@ -10,6 +10,7 @@ const UpdateArticle = () => {
   const [update, setUpdate] = useState({
     title: "",
     description: "",
+    image: null,
   });
 
   const { id_article } = useParams();
@@ -54,7 +55,7 @@ const UpdateArticle = () => {
         icon: "success",
         button: "close!",
       });
-      navigate(`/`);
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
@@ -112,6 +113,19 @@ const UpdateArticle = () => {
                         setUpdate({ ...update, description: e.target.value })
                       }
                     ></textarea>
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="file"
+                      id="image"
+                      value={update.image}
+                      onChange={(e) => {
+                        setUpdate({
+                          ...update,
+                          image: e.target.files[0],
+                        });
+                      }}
+                    />
                   </div>
                   <Gap height={10} />
                   <div className="btn-group">
