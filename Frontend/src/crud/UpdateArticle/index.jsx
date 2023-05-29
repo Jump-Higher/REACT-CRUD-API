@@ -18,40 +18,62 @@ const UpdateArticle = () => {
   // get article
   useEffect(() => {
     document.title = "Update article";
-    instance
-      .get(`article/${id_article}`)
-      .then((res) => {
+    // instance
+    //   .get(`article/${id_article}`)
+    //   .then((res) => {
+    //     console.log(res);
+    //     setUpdate(res.data.data);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    const getArticleById = async (id_article) => {
+      try {
+        const res = await instance.get(`article/${id_article}`);
         console.log(res);
         setUpdate(res.data.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getArticleById(id_article);
   }, [id_article]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("diklik");
 
     // update article
-    instance
-      .put(`/article/update/${id_article}`, update)
-      .then((res) => {
-        console.log(res.data);
-        // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
-
-        // alert(res.data.message)
-        swal({
-          title: "Success!",
-          text: "Data Artikel Berhasil Diupdate!",
-          icon: "success",
-          button: "close!",
-        });
-        navigate("/");
-      })
-      .catch((err) => {
-        console.error(err);
+    try {
+      const res = await instance.put(`article/update/${id_article}`, update);
+      // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
+      console.log(res.data);
+      swal({
+        title: "Success!",
+        text: "Data Artikel Berhasil Diupdate!",
+        icon: "success",
+        button: "close!",
       });
+      navigate(`/`);
+    } catch (error) {
+      console.error(error);
+    }
+    // instance
+    //   .put(`/article/update/${id_article}`, update)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     // tampilkan notifikasi data berhasil diupdate menggunakan sweet alert
+    //     swal({
+    //       title: "Success!",
+    //       text: "Data Artikel Berhasil Diupdate!",
+    //       icon: "success",
+    //       button: "close!",
+    //     });
+    //     navigate("/");
+    //   })
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
   };
 
   return (
