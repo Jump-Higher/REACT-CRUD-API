@@ -65,14 +65,20 @@ const ListArticle = () => {
 
   // Mengatur halaman saat ini
   const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber)
+    if (pageNumber < 1) {
+      setCurrentPage(1)
+    } else if (pageNumber > totalPages) {
+      setCurrentPage(totalPages)
+    } else {
+      setCurrentPage(pageNumber)
+    }
   }
 
   // Menghitung total halaman
   const totalPages = Math.ceil(articles.length / articlesPerPage)
   // Menghitung indeks artikel yang akan ditampilkan di halaman saat ini
   const indexOfLastArticle = currentPage * articlesPerPage
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage
+  const indexOfFirstArticle = (currentPage - 1) * articlesPerPage + 1
   const currentArticles = filteredArticles.slice(
     indexOfFirstArticle,
     indexOfLastArticle
@@ -80,9 +86,10 @@ const ListArticle = () => {
 
   // Menghasilkan tombol halaman
   const pageNumbers = []
-  for (let i = 1; i <= Math.ceil(articles.length / articlesPerPage); i++) {
+  for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i)
   }
+
   return (
     <>
       <div className='container mt-5'>
@@ -126,7 +133,7 @@ const ListArticle = () => {
           <tbody className='table-group-divider text-center'>
             {currentArticles.map((article, index) => (
               <tr key={index}>
-                <th scope='row'>{(index = index + 1)}</th>
+                <th scope='row'>{indexOfFirstArticle + index}</th>
                 <td>{article.title}</td>
                 <td>{article.description}</td>
                 <td>
