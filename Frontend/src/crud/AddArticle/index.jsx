@@ -21,7 +21,7 @@ const AddArticle = () => {
     e.preventDefault();
     try {
       const res = await instance.post(`/article/create`, addArticle);
-      console.log(res);
+      console.log(res.data.image);
       swal({
         title: "Success!",
         text: "Data Article Berhasil Ditambahkan!",
