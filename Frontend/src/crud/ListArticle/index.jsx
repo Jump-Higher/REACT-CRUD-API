@@ -65,22 +65,16 @@ const ListArticle = () => {
 
   // Mengatur halaman saat ini
   const paginate = (pageNumber) => {
-    if (pageNumber < 1) {
-      setCurrentPage(1)
-    } else if (pageNumber > totalPages) {
-      setCurrentPage(totalPages)
-    } else {
-      setCurrentPage(pageNumber)
-    }
+    setCurrentPage(pageNumber)
   }
 
   // Menghitung total halaman
-  const totalPages = Math.ceil(articles.length / articlesPerPage)
+  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage)
   // Menghitung indeks artikel yang akan ditampilkan di halaman saat ini
   const indexOfLastArticle = currentPage * articlesPerPage
-  const indexOfFirstArticle = (currentPage - 1) * articlesPerPage + 1
+  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage + 1
   const currentArticles = filteredArticles.slice(
-    indexOfFirstArticle,
+    indexOfFirstArticle - 1,
     indexOfLastArticle
   )
 
@@ -132,18 +126,25 @@ const ListArticle = () => {
           </thead>
           <tbody className='table-group-divider text-center'>
             {currentArticles.map((article, index) => (
-              <tr key={index}>
-                <th scope='row'>{indexOfFirstArticle + index}</th>
-                <td>{article.title}</td>
-                <td>{article.description}</td>
+              <tr key={index} className='align-self-center'>
+                <td scope='row' className='align-middle'>
+                  {indexOfFirstArticle + index}
+                </td>
+                <td className='align-middle'>{article.title}</td>
+                <td className='align-middle'>
+                  {article.description.length > 20
+                    ? article.description.substr(0, 20) + '...'
+                    : article.description}
+                </td>
+
                 <td>
                   <img
                     src={article.image}
-                    alt={article.title}
-                    className='rounded w-25'
+                    className='rouded'
+                    style={{ width: '50px' }}
                   />
                 </td>
-                <td>
+                <td className='align-middle'>
                   <div className='btn-group '>
                     <Link to={`/update-article/${article.id_article}`}>
                       <Button icon='edit' variant='outline-primary mx-1' />
