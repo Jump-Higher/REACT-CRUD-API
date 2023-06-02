@@ -131,7 +131,12 @@ const ListArticle = () => {
                 <td scope="row" className="align-middle">
                   {indexOfFirstArticle + index}
                 </td>
-                <td className="align-middle">{article.title}</td>
+                {/* <td className="align-middle">{article.title}</td> */}
+                <td className="align-middle">
+                  {article.title.split(" ").filter((word) => word !== "").length > 12
+                    ? article.title.split(" ").slice(0, 12).join(" ") + " ..."
+                    : article.title}
+                </td>
                 <td className="align-middle">
                   {article.description.length > 20
                     ? article.description.substr(0, 20) + "..."
