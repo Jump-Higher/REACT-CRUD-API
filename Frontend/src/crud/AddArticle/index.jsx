@@ -40,7 +40,23 @@ const AddArticle = () => {
       })
     }
   }
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0]
 
+    if (selectedImage) {
+      const reader = new FileReader()
+
+      reader.onload = () => {
+        setAddArticle({
+          ...addArticle,
+          image: selectedImage,
+          previewImage: reader.result,
+        })
+      }
+
+      reader.readAsDataURL(selectedImage)
+    }
+  }
   return (
     <>
       <div className='container'>
@@ -88,15 +104,23 @@ const AddArticle = () => {
                     ></textarea>
                   </div>
                   <div className='form-group'>
+                    {addArticle.previewImage && (
+                      <img
+                        src={addArticle.previewImage}
+                        alt='Preview'
+                        style={{
+                          width: '100px',
+                          height: '100px',
+                          marginTop: '10px',
+                          marginBottom: '10px',
+                        }}
+                      />
+                    )}
+                    <br />
                     <input
                       type='file'
                       id='image'
-                      onChange={(e) => {
-                        setAddArticle({
-                          ...addArticle,
-                          image: e.target.files[0],
-                        })
-                      }}
+                      onChange={handleImageChange}
                     />
                   </div>
                   <Gap height={10} />

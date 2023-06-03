@@ -148,17 +148,17 @@ const ListArticle = () => {
                 </td>
                 <td className='align-middle'>
                   <div className='btn-group '>
-                    {/* <Link to={`/update-article/${article.id_article}`}>
+                    <Link to={`/update-article/${article.id_article}`}>
                       <Button icon='edit' variant='outline-primary mx-1' />
-                    </Link> */}
-                    <Link
+                    </Link>
+                    {/* <Link
                       to={`/update-article/${slugify(article.title, {
                         lower: true,
                         strict: true,
                       })}`}
                     >
                       <Button icon='edit' variant='outline-primary mx-1' />
-                    </Link>
+                    </Link> */}
                     <Link to='#'>
                       <Button
                         onClick={() => handleDelete(article.id_article)}
