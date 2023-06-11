@@ -20,7 +20,7 @@ const AddArticle = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await instance.post(`/article/create`, addArticle)
+      const res = await instance.post(`article/create`, addArticle)
       console.log(res.data.image)
       swal({
         title: 'Success!',

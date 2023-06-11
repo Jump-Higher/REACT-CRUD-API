@@ -50,7 +50,7 @@ const UpdateArticle = () => {
       if (update.image) {
         formData.append('image', update.image, update.image.name) // Menambahkan file gambar ke FormData
       }
-      const res = await instance.put(`/article/update/${id_article}`, formData)
+      const res = await instance.put(`article/update/${id_article}`, formData)
       console.log(res.data)
       swal({
         title: 'Success!',
